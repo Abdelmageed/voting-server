@@ -34,8 +34,9 @@ describe('Application Logic', ()=> {
       }),
             nextExpectedState = Map({
               movies: List.of('Sunshine'),
-              pair: List.of('Trainspotting', '28 Days Later')
-            });
+              vote: Map({
+                pair: List.of('Trainspotting', '28 Days Later')}
+            )});
       
       expect(next(state)).to.equal(nextExpectedState);
     });

@@ -5,7 +5,12 @@ export const setEntries = (state, entries)=> {
 };
 
 export const next = (state)=> {
+  let entries = state.get('movies');
   return state
-    .update('movies', movies=> movies.slice(2, 3))
-    .set('pair', state.get('movies').slice(0, 2));
-}
+    .merge({
+    movies: entries.skip(2),
+    vote: Map({
+      pair: entries.take(2)
+    })
+  });
+};
