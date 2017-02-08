@@ -1,4 +1,4 @@
-import {setEntries} from '../src/core';
+import {setEntries, next} from '../src/core';
 import {expect} from 'chai';
 import {List, Map} from 'immutable';
 
@@ -23,6 +23,21 @@ describe('Application Logic', ()=> {
           });
       
       expect(setEntries(state, entries)).to.equal(nextExpectedState);
+    });
+  });
+  
+  describe('next()', ()=> {
+    
+    it('should return the next state with 2 entries removed from movies and placed under pair', ()=> {
+      const state = Map({
+        movies: List.of('Trainspotting', '28 Days Later', 'Sunshine')
+      }),
+            nextExpectedState = Map({
+              movies: List.of('Sunshine'),
+              pair: List.of('Trainspotting', '28 Days Later')
+            });
+      
+      expect(next(state)).to.equal(nextExpectedState);
     });
   });
 });
