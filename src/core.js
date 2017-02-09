@@ -35,5 +35,5 @@ export const getWinners = (state)=> {
 };
 
 export const vote = (state, entry)=> {
-  return state.updateIn(["vote", "tally", entry], 0, entry=> entry + 1);
+  return state.updateIn(["tally", entry], 0, entry=> entry + 1);
 };

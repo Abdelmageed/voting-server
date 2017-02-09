@@ -113,17 +113,12 @@ describe('Application Logic', ()=> {
     it('should return the state with a tally created for the entry voted on', ()=> {
         
       const state = Map({
-              movies: List.of('Sunshine'),
-              vote: Map({
-                pair: List.of('Trainspotting', '28 Days Later')}
-            )}),
+                pair: List.of('Trainspotting', '28 Days Later')
+            }),
             expectedNextState = Map({
-              movies: List.of('Sunshine'),
-              vote: Map({
-                pair: List.of('Trainspotting', '28 Days Later'),
-                tally: Map({
-                  'Trainspotting': 1
-                })
+              pair: List.of('Trainspotting', '28 Days Later'),
+              tally: Map({
+                'Trainspotting': 1
               })
             });
       
@@ -133,23 +128,17 @@ describe('Application Logic', ()=> {
     it('should increment an existing tally for the entry voted on', ()=> {
       
       const state = Map({
-        movies: List.of('Sunshine'),
-        vote: Map({
             pair: List.of('Trainspotting', '28 Days Later'),
             tally: Map({
               'Trainspotting': 2,
               '28 Days Later': 2
             })
-        })
       }),
             nextExpectedState = Map({
-              movies: List.of('Sunshine'),
-              vote: Map({
-                  pair: List.of('Trainspotting', '28 Days Later'),
-                  tally: Map({
-                    'Trainspotting': 3,
-                    '28 Days Later': 2
-                  })
+              pair: List.of('Trainspotting', '28 Days Later'),
+              tally: Map({
+                'Trainspotting': 3,
+                '28 Days Later': 2
               })
       });
       
